@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 
+/**
+ * Order of execution:
+ * constructor > render > componentDidMount
+ *
+ */
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -10,10 +15,7 @@ export default class App extends Component {
     };
   }
 
-  /**
-   * Ideal place to initiate fetching data that is crucial for the component to render
-   */
-
+  // Ideal place to initiate fetching data that is crucial for the component to render
   async componentDidMount() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
 
