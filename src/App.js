@@ -12,6 +12,7 @@ export default class App extends Component {
 
     this.state = {
       monsters: [],
+      searchParam: "",
     };
   }
 
@@ -36,12 +37,37 @@ export default class App extends Component {
     );
   }
 
+  searchQueryHandler = (e) => {
+    const searchParam = e.target.value.toLowerCase();
+    this.setState(() => {
+      return { searchParam };
+    });
+  };
+
   render() {
+    const { monsters, searchParam } = this.state;
+
+    const filteredMonsters =
+      searchParam !== ""
+        ? monsters.filter((monster) =>
+            monster.name.toLowerCase().includes(searchParam)
+          )
+        : monsters;
+
     return (
       <div className="App">
-        {this.state.monsters.map((monster) => {
-          return <h1 key={monster.id}>{monster.name}</h1>;
-        })}
+        <div className="search">
+          <input
+            type="search"
+            placeholder="search monsters"
+            onChange={this.searchQueryHandler}
+          />
+        </div>
+        <div className="App">
+          {filteredMonsters.map((monster) => {
+            return <h1 key={monster.id}>{monster.name}</h1>;
+          })}
+        </div>
       </div>
     );
   }
