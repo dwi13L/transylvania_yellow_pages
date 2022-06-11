@@ -17,6 +17,10 @@ export default class App extends Component {
   }
 
   // Ideal place to initiate fetching data that is crucial for the component to render
+  /**
+   * IMPORTANT NOTE: if componentDidMount returns a promise, it will not be awaited!
+   *
+   */
   async componentDidMount() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
 
