@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import CardList from "./components/card-list/CardList.js";
 
 /**
  * Order of execution:
@@ -32,11 +33,15 @@ export default class App extends Component {
     const users = await response.json();
 
     this.setState(
+      //Updater function
       () => {
         return { monsters: users };
       },
+      //Callback function
       () => {
-        console.log(`monster list set`);
+        /**
+         * Call back function
+         */
       }
     );
   }
@@ -59,7 +64,7 @@ export default class App extends Component {
         : monsters;
 
     return (
-      <div className="App">
+      <>
         <div className="search">
           <input
             type="search"
@@ -67,12 +72,8 @@ export default class App extends Component {
             onChange={this.searchQueryHandler}
           />
         </div>
-        <div className="App">
-          {filteredMonsters.map((monster) => {
-            return <h1 key={monster.id}>{monster.name}</h1>;
-          })}
-        </div>
-      </div>
+        <CardList items={filteredMonsters} />
+      </>
     );
   }
 }
