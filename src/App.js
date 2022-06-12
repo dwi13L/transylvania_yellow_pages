@@ -1,14 +1,65 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import "./App.css";
 import CardList from "./components/cardList/CardList.js";
 import SearchBox from "./components/searchBox/SearchBox.js";
+
+export default function App() {
+  const [monsters, setMonsters] = useState([]);
+  const [searchParam, setSearchParam] = useState("");
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/users`
+      );
+
+      if (response.status !== 200) {
+        //invoke handler
+        return;
+      }
+
+      const users = await response.json();
+      setMonsters(users);
+    })();
+  }, []);
+
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(searchParam)
+    );
+    setFilteredMonsters(newFilteredMonsters);
+  }, [monsters, searchParam]);
+
+  const searchQueryHandler = (e) => {
+    const searchParam = e.target.value.toLowerCase();
+    setSearchParam(searchParam);
+  };
+
+  return (
+    <div className="app">
+      <h1 className="title">Transylvania Yellow Pages</h1>
+      <SearchBox
+        className="search"
+        placeHolder={"Search Monsters"}
+        onChangeHandler={searchQueryHandler}
+      />
+      <CardList items={filteredMonsters} itemName="Monster" />
+    </div>
+  );
+}
+
+/**
+ * Class components ----------------------------------------------------------------------------------------
+ * @deprecated ported component to functional component
+ */
 
 /**
  * Order of execution:
  * constructor > render > componentDidMount
  *
  */
-export default class App extends Component {
+export class _App extends Component {
   constructor(props) {
     super(props);
 
