@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import "./App.css";
 import CardList from "./components/cardList/CardList.js";
+import GithubLink from "./components/githubLink/GithubLink.js";
 import SearchBox from "./components/searchBox/SearchBox.js";
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
         onChangeHandler={searchQueryHandler}
       />
       <CardList items={filteredMonsters} itemName="Monster" />
+      <GithubLink source="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
     </div>
   );
 }
