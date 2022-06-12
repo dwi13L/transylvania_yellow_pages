@@ -5,11 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <>
-    <App />
-  </>
-);
+root.render(<App />);
 
 /**
  * Strict mode rendered component twice

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import CardList from "./components/card-list/CardList.js";
-import SearchBox from "./components/search-box/SearchBox.js";
+import CardList from "./components/cardList/CardList.js";
+import SearchBox from "./components/searchBox/SearchBox.js";
 
 /**
  * Order of execution:
@@ -65,13 +65,13 @@ export default class App extends Component {
         : monsters;
 
     return (
-      <div className="App">
+      <div className="app">
         <SearchBox
           className="search"
           placeHolder={"Search Monsters"}
-          changeHandler={this.searchQueryHandler}
+          onChangeHandler={this.searchQueryHandler}
         />
-        <CardList items={filteredMonsters} />
+        <CardList items={filteredMonsters} itemName="Monster" />
       </div>
     );
   }

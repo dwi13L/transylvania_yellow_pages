@@ -1,0 +1,20 @@
+.card{
+    width: 20vw;
+    background-color: #95dada;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    transition: transform 0.25s ease-out;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+  }
+
+img{
+    height: 20vh;
+}
