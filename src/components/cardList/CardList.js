@@ -9,7 +9,7 @@ export default class CardList extends Component {
     return (
       <div className="card-list-container">
         {items.map((item) => {
-          return <Card key={item.id} {...item} itemName={itemName} />;
+          return <Card key={item.id} item={item} itemName={itemName} />;
         })}
       </div>
     );

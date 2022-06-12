@@ -1,3 +1,10 @@
+
 .app{
   text-align: center;
+}
+
+.title{
+  font-family: bigelow Rules;
+  font-size: 75px;
+  color: #0ccac4;
 }

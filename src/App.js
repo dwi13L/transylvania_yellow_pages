@@ -41,7 +41,7 @@ export default class App extends Component {
       //Callback function
       () => {
         /**
-         * Call back function
+         * Call back function to be run after asynchronous setState call
          */
       }
     );
@@ -66,6 +66,7 @@ export default class App extends Component {
 
     return (
       <div className="app">
+        <h1 className="title">Transylvania Yellow Pages</h1>
         <SearchBox
           className="search"
           placeHolder={"Search Monsters"}

@@ -3,7 +3,6 @@ import "./SearchBox.css";
 
 export default class SearchBox extends Component {
   render() {
-    console.log(this.props);
     const { className, placeHolder, onChangeHandler } = this.props;
 
     return (

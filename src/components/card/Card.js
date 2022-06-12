@@ -3,7 +3,7 @@ import "./Card.css";
 
 export default class Card extends Component {
   render() {
-    const { id, itemName, name, email } = this.props;
+    const { id, itemName, name, email, phone } = this.props.item;
     return (
       <div className="card">
         <img
@@ -11,6 +11,7 @@ export default class Card extends Component {
           alt={`${itemName} ${name}`}
         />
         <h2 key={id}>{name}</h2>
+        <p>{phone}</p>
         <p>{email}</p>
       </div>
     );
